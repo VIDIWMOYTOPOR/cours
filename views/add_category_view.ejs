@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Добавление Категории</title>
+        <style>
+            h1 {
+          font-size: 36px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          text-align: center;
+        }
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                margin: 0 auto;
+            }
+            label {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            input[type="text"],
+            input[type="number"],
+            textarea {
+                padding: 8px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            input[type="submit"] {
+                padding: 10px 20px;
+                font-size: 18px;
+                background-color: #008CBA;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            input[type="submit"]:hover {
+                background-color: #006B8F;
+            }
+        </style>
+    </head>
+    <body>  
+        <h1>Добавление Категории</h1>
+        <form action="/add_categorys" method="POST">
+            <label for="game_category">Название категории:</label>
+            <input type="text" name="game_category" id="game_category" required>
+            <br>
+            <label for="idcategory">Id категории:</label>
+            <input type="number" name="idcategory" id="idcategory" min="0" required>
+            <br>
+            <input type="submit" value="Добавить">
+        </form>
+    </body>
+</html>
+

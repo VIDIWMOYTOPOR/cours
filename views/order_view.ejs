@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <title>Список заказов</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 36px;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      table {
+        margin: 0 auto;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+        width: 80%;
+        background-color: white;
+      }
+
+      th, td {
+        text-align: left;
+        padding: 10px;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      button {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        background-color: #008CBA;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #006B8F;
+      }
+
+      form {
+        display: inline-block;
+      }
+
+      .sidebar {
+background-color: #e2e2e2;
+border-right:5px solid #008CBA;
+float: left;
+width: 200px;
+height: 100%;
+padding: 20px;
+}
+
+.sidebar button {
+display: block;
+margin-bottom: 10px;
+font-family: Arial, sans-serif;
+font-size: 16px;
+background-color: #008CBA;
+color: white;
+border: none;
+padding: 10px 20px;
+margin: 10px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.sidebar button:hover {
+background-color: #006B8F;
+}
+
+
+form {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 10px;
+border-bottom: 1px solid black;
+}
+
+form:not(:last-child) {
+margin-right: 10px;
+}
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+
+      <form method="GET" action="/users">
+          <button type="submit">Пользователи</button>
+      </form>
+
+      <form method="GET" action="/games">
+        <button type="submit">Список игр</button>
+      </form>
+
+      <form method="GET" action="/categorys">
+        <button type="submit">Список категории</button>
+       </form>
+       
+       <form method="GET" action="/orders">
+        <button type="submit">Список заказов</button>
+       </form>
+
+
+      <form method="GET" action="/addgame">
+          <button type="submit">Добавление игры</button>
+      </form>
+      <form method="GET" action="/deletegame">
+          <button type="submit">Удаление игры</button>
+      </form>
+ 
+      <form method="GET" action="/addcategory">
+        <button type="submit">Добавление категории</button>
+     </form>
+      
+      <form method="GET" action="/deletecategorys">
+        <button type="submit">Удаление категории</button>
+      </form>
+</div>
+
+
+    <h1>История заказов:</h1>
+    <table>
+        <tr>
+          <th>ID заказа</th>
+          <th>ID пользователя</th>
+          <th>Название игры</th>
+
+        </tr>
+        <% orders.forEach(function(order) { %>
+        <tr>
+          <td><%= order.id_order %></td>
+          <td><%= order.id_user %></td>
+          <td><%= order.game_name %></td>
+
+        </tr>
+        <% }); %>
+      </table>
+
+  </body>
+</html>
